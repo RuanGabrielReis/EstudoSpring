@@ -12,20 +12,25 @@ import java.util.List;
 @RequestMapping("/usuarios")
 public class UsuarioController {
     @Autowired
-    private UsuarioService service;
+    private UsuarioService usuarioService;
 
     @GetMapping
     public List<Usuario> listar() {
-        return service.listarTodos();
+        return usuarioService.listarTodos();
     }
 
     @PostMapping
     public Usuario criar(@RequestBody Usuario usuario) {
-        return service.salvar(usuario);
+        return usuarioService.salvar(usuario);
     }
 
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
-        service.deletar(id);
+        usuarioService.deletar(id);
+    }
+
+    @GetMapping("/buscar")
+    public List<Usuario> buscarPorNome(@RequestParam String nome) {
+        return usuarioService.buscaPorNome(nome);
     }
 }

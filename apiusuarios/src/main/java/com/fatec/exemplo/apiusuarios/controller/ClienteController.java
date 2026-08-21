@@ -1,6 +1,7 @@
 package com.fatec.exemplo.apiusuarios.controller;
 
 import com.fatec.exemplo.apiusuarios.model.Cliente;
+import com.fatec.exemplo.apiusuarios.model.Usuario;
 import com.fatec.exemplo.apiusuarios.repository.ClienteRepository;
 import com.fatec.exemplo.apiusuarios.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,20 +13,25 @@ import java.util.List;
 @RequestMapping("/clientes")
 public class ClienteController {
     @Autowired
-    private ClienteService service;
+    private ClienteService clienteService;
 
     @GetMapping
     public List<Cliente> listar() {
-        return service.listarTodos();
+        return clienteService.listarTodos();
     }
 
     @PostMapping
     public Cliente criar(@RequestBody Cliente cliente) {
-        return service.salvar(cliente);
+        return clienteService.salvar(cliente);
     }
 
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
-        service.deletar(id);
+        clienteService.deletar(id);
+    }
+
+    @GetMapping("/buscar")
+    public List<Cliente> buscarPorNome(@RequestParam String nome) {
+        return clienteService.buscaPorNome(nome);
     }
 }
