@@ -34,4 +34,19 @@ public class ClienteController {
     public List<Cliente> buscarPorNome(@RequestParam String nome) {
         return clienteService.buscaPorNome(nome);
     }
+
+    @GetMapping("/buscarContendo")
+    public List<Cliente> buscarPorNomeContendo(@RequestParam String nome) {
+        return clienteService.buscarPorNomeContendo(nome);
+    }
+
+    @GetMapping("/buscarIdadeMaior")
+    public List<Cliente> buscarPorIdadeMaior(@RequestParam Integer idade) {
+        return clienteService.buscarPorIdadeMaior(idade);
+    }
+
+    @GetMapping("/buscarIdadeMenor")
+    public List<Cliente> buscarPorIdadeMenor(@RequestParam Integer idade) {
+        return clienteService.buscarPorIdadeMenor(idade);
+    }
 }

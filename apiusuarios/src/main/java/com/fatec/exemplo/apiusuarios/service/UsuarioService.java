@@ -29,4 +29,16 @@ public class UsuarioService {
     public List<Usuario> buscaPorNome(String nome) {
         return usuarioRepository.findByNome(nome);
     }
+
+    public List<Usuario> buscarPorNomeContendo(String nome) {
+        return usuarioRepository.findByNomeContaining(nome);
+    }
+
+    public List<Usuario> buscarPorIdadeMaior(Integer idade) {
+        return usuarioRepository.findByIdadeGreaterThan(idade);
+    }
+
+    public List<Usuario> buscarPorIdadeMenor(Integer idade) {
+        return usuarioRepository.findByIdadeLessThan(idade);
+    }
 }

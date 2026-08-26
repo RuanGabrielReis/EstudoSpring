@@ -33,4 +33,21 @@ public class UsuarioController {
     public List<Usuario> buscarPorNome(@RequestParam String nome) {
         return usuarioService.buscaPorNome(nome);
     }
+
+    @GetMapping("/buscarContendo")
+    public List<Usuario> buscarPorNomeContendo(@RequestParam String nome) {
+        return usuarioService.buscarPorNomeContendo(nome);
+    }
+
+    @GetMapping("/buscarIdadeMaior")
+    public List<Usuario> buscarPorIdadeMaior(@RequestParam Integer idade) {
+        return usuarioService.buscarPorIdadeMaior(idade);
+    }
+
+    @GetMapping("/buscarIdadeMenor")
+    public List<Usuario> buscarPorIdadeMenor(@RequestParam Integer idade) {
+        return usuarioService.buscarPorIdadeMenor(idade);
+    }
+
+
 }

@@ -19,6 +19,7 @@ public class Cliente {
     private String cpf;
     private String telefone;
     private String rg;
+    private Integer idade;
 
     public Long getCod_cli() {
         return cod_cli;
@@ -74,5 +75,13 @@ public class Cliente {
 
     public void setRg(String rg) {
         this.rg = rg;
+    }
+
+    public Integer getIdade() {
+        return idade;
+    }
+
+    public void setIdade(Integer idade) {
+        this.idade = idade;
     }
 }
